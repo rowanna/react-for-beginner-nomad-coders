@@ -8,69 +8,24 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 	<script type="text/babel">
 
-        function MinutesToHours ()  {
-            const [amount, setAmount] = React.useState(0)
-            const [hours, setHours] = React.useState(0)
-            const [flipped, setFlipped] = React.useState(false)
-            const onChange= (e) => {
-                setAmount(e.target.value)
-            }
 
-            const reset = () => setAmount(0)
-            const flip = () => {
-                reset()
-                setFlipped(current => !current)
-                
-            }
-            return (
-            <div>
-                <div>
-                    <labels htmlFor="minutes">Minutes</labels>
-                    <input 
-                        value={flipped ? amount * 60 : amount}
-                        id="minutes"
-                        placeholder="Minutes"
-                        type="number"
-                        onChange={onChange}
-                        disabled={flipped}
-                    />
-                </div>
-                
-                <div>
-                    <labels htmlFor="hours">Hours</labels>
-                    <input 
-                        value={flipped ? amount : Math.round(amount / 60)} 
-                        id="hours" 
-                        placeholder="Hours" 
-                        type="number" 
-                        onChange={onChange}
-                        disabled={!flipped}
-                    />
-                </div>
-                <button onClick={reset}>Reset</button>
-                <button onClick={flip}>Flip</button>
-            </div>
-            )
+        function Btn ({textName, big = false}) {
+            return <button style={{
+                backgroundColor: 'tomato',
+                color: 'white',
+                padding: '10px 20px',
+                border: 0,
+                borderRadius: 10,
+                fontSize: big ? '20px' : '12px'
+            }}>{textName}</button>
         }
-        function KmToMiles () {
-            return <h3>KM 2 M</h3>  
-        }
+
         function App ()  {
-            const [index, setIndex] = React.useState('0')
-            const onSelect = (event) => {
-                setIndex(event.target.value)
-            }
+
             return (
             <div>
-                <h1>Super Converter</h1>
-                <select value={index} onChange={onSelect} name="" id="">
-                    <option value="0">Minutes</option>    
-                    <option value="1">KM</option>    
-                </select>
-                {index === "0" ? <MinutesToHours /> : null}
-                {index === "1" ? <KmToMiles /> : null }
-                
-                
+                <Btn textName="Save Changes" big={true}/>
+                <Btn textName="Hello" />
             </div>
             )
         }
