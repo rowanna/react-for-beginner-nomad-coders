@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import StyledComponentExample from "./StyledComponentExample"
 
 function Hello() {
   useEffect(()=> {
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <div>
+      <StyledComponentExample />
       {showing? <Hello /> : null}
       <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
     </div>
