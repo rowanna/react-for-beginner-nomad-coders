@@ -1,10 +1,10 @@
 import { useState } from "react";
-import ToDoList from "./ToDoList";
+import CoinTracker from "./CoinTracker";
 
 function App() {
   return (
     <div>
-      <ToDoList />
+      <CoinTracker />
     </div>
   )
 }
